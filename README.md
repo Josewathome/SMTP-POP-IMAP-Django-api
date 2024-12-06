@@ -39,8 +39,8 @@ This Django-based Email Service API provides a robust and flexible solution for 
 
 #### Clone the Repository
 ```bash
-git clone https://github.com/yourusername/django-email-service.git
-cd django-email-service
+git clone https://github.com/Josewathome/SMTP-POP-IMAP-Django-api.git
+cd SMTP-POP-IMAP-Django-api
 ```
 
 #### Create Virtual Environment
@@ -57,6 +57,7 @@ pip install -r requirements.txt
 #### Configure Environment
 Create a `.env` file with your configurations:
 ```
+ALLOWED_HOSTS=localhost,127.0.0.1 <for deployment add the allowed hosts>
 SECRET_KEY=your_secret_key
 DEBUG=True
 EMAIL_HOST=smtp.gmail.com
@@ -64,6 +65,9 @@ EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER=your_email@gmail.com
 EMAIL_HOST_PASSWORD=your_app_password
+JWT_ACCESS_TOKEN=your-uniqueverification-beara-code example: djduey67*************hsi
+
+MAX_EMAILS=<the defult number of emails you want to pull as integer>
 ```
 
 #### Run Migrations
