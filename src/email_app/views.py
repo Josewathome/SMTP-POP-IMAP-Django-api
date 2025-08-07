@@ -35,7 +35,8 @@ class SendEmailView(APIView):
             
             # Log email attempt (without sensitive data)
             logger.info(f"Email send attempt: {len(email_data['recipients'])} recipients, "
-                       f"Subject: {email_data['subject'][:50]}...")
+                       f"Subject: {email_data['subject'][:50]}..."
+                       f"User Default Settings: {email_data['use_default_settings']}")
             
             # Send email using service
             result = EmailService.send_email(

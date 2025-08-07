@@ -18,8 +18,6 @@ from django.core.mail import EmailMultiAlternatives
 from django.core.mail.backends.smtp import EmailBackend
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
-from email.mime.base import MimeBase
-from email import encoders
 import smtplib
 import socket
 
