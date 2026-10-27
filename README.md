@@ -1,7 +1,7 @@
 
 # Django Email Service API
 
-A production-ready Django backend for sending and receiving emails via REST APIs. Designed for reliability, flexibility, and operational visibility in real-world SaaS systems.
+A Django backend for sending and receiving emails via REST APIs. Designed for reliability, flexibility, and operational visibility in real-world SaaS systems.
 
 ---
 
@@ -19,7 +19,7 @@ A production-ready Django backend for sending and receiving emails via REST APIs
 - **Security & Operations**
   - JWT-protected endpoints
   - Environment-based configuration
-  - Connection pooling and timeout control
+  - Configurable connection timeouts
   - Logging and error tracking for all operations
 
 ---
@@ -27,7 +27,7 @@ A production-ready Django backend for sending and receiving emails via REST APIs
 ## Architecture & Design Notes
 
 - Built with **Django REST Framework** for robust, maintainable APIs.
-- **Asynchronous processing** used for sending bulk emails to avoid blocking requests.
+- **Synchronous by design**: each request opens its own SMTP, IMAP or POP connection; there is no background queue yet.
 - **Flexible backend**: Each request can override default SMTP/IMAP settings, allowing multi-tenant use cases.
 - **Operational safety**:
   - All credentials stored in environment variables
@@ -137,7 +137,7 @@ Supports:
 ## Operational Notes
 
 * **Logging**: All operations logged for traceability.
-* **Performance**: Connection pooling, caching, and request timeouts implemented.
+* **Performance**: per-request connection timeouts; responses are never cached (`never_cache`).
 * **Security**: Never commit credentials; JWT auth and environment variables used.
 
 ---
